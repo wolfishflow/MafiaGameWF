@@ -37,6 +37,7 @@ namespace MafiaGame
         
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            this.Close();
             startForm.Show();
         }
 
@@ -48,8 +49,7 @@ namespace MafiaGame
         private void Lobby_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'mafiaDBDataSet.Matches' table. You can move, or remove it, as needed.
-            this.matchesTableAdapter.Fill(this.mafiaDBDataSet.Matches);
-
+            //this.matchesTableAdapter.Fill(this.mafiaDBDataSet.Matches);
         }
 
 
@@ -72,7 +72,7 @@ namespace MafiaGame
                     break;
             }
 
-            query = "SELECT [MatchName], [MatchId] FROM Matches WHERE RegionID=@regionID;";
+            query = "SELECT * FROM Matches WHERE RegionID=@regionID AND ([Players] != [MaxPlayers]);";
 
             using (SqlConnection conn = new SqlConnection(myConnString))
             {
@@ -86,6 +86,23 @@ namespace MafiaGame
                 lbMatches.DisplayMember = "MatchName";
                 lbMatches.DataSource = data;
             }
+
+            query = "SELECT * FROM Matches WHERE RegionID=@regionID AND ([Players] = [MaxPlayers]);";
+
+            using (SqlConnection conn = new SqlConnection(myConnString))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@regionID", regionID);
+                conn.Open();
+                SqlDataAdapter dap = new SqlDataAdapter(cmd);
+                DataTable data = new DataTable();
+                dap.Fill(data);
+
+                lbFullMatches.DisplayMember = "MatchName";
+                lbFullMatches.DataSource = data;
+            }
+
+            lbFullMatches.ClearSelected();
 
         }
     }
