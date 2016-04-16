@@ -28,23 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbMatches = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnJoin = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblRegion = new System.Windows.Forms.Label();
+            this.mafiaDBDataSet = new MafiaGame.MafiaDBDataSet();
+            this.mafiaDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.matchesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.matchesTableAdapter = new MafiaGame.MafiaDBDataSetTableAdapters.MatchesTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.mafiaDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mafiaDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lbMatches
             // 
-            this.lbMatches.DisplayMember = "MatchName";
+            this.lbMatches.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.matchesBindingSource, "MatchId", true));
             this.lbMatches.FormattingEnabled = true;
             this.lbMatches.Location = new System.Drawing.Point(13, 30);
             this.lbMatches.Name = "lbMatches";
             this.lbMatches.Size = new System.Drawing.Size(157, 95);
             this.lbMatches.TabIndex = 0;
-            this.lbMatches.ValueMember = "MatchId";
             // 
             // label1
             // 
@@ -90,6 +97,25 @@
             this.lblRegion.Size = new System.Drawing.Size(0, 13);
             this.lblRegion.TabIndex = 6;
             // 
+            // mafiaDBDataSet
+            // 
+            this.mafiaDBDataSet.DataSetName = "MafiaDBDataSet";
+            this.mafiaDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // mafiaDBDataSetBindingSource
+            // 
+            this.mafiaDBDataSetBindingSource.DataSource = this.mafiaDBDataSet;
+            this.mafiaDBDataSetBindingSource.Position = 0;
+            // 
+            // matchesBindingSource
+            // 
+            this.matchesBindingSource.DataMember = "Matches";
+            this.matchesBindingSource.DataSource = this.mafiaDBDataSetBindingSource;
+            // 
+            // matchesTableAdapter
+            // 
+            this.matchesTableAdapter.ClearBeforeFill = true;
+            // 
             // Lobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +130,10 @@
             this.Name = "Lobby";
             this.Text = "Lobby";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Lobby_FormClosed);
+            this.Load += new System.EventHandler(this.Lobby_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.mafiaDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mafiaDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,5 +147,9 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblRegion;
+        private System.Windows.Forms.BindingSource mafiaDBDataSetBindingSource;
+        private MafiaDBDataSet mafiaDBDataSet;
+        private System.Windows.Forms.BindingSource matchesBindingSource;
+        private MafiaDBDataSetTableAdapters.MatchesTableAdapter matchesTableAdapter;
     }
 }

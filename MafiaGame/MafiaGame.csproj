@@ -74,6 +74,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MafiaDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MafiaDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Player_Classes\MafiaPlayer.cs" />
     <Compile Include="Player_Classes\NursePlayer.cs" />
     <Compile Include="Player_Classes\Player.cs" />
@@ -95,6 +100,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="MafiaDBDataSet.xsc">
+      <DependentUpon>MafiaDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MafiaDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MafiaDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MafiaDBDataSet.xss">
+      <DependentUpon>MafiaDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
