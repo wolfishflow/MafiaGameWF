@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.userLabel = new System.Windows.Forms.Label();
             this.cbUserName = new System.Windows.Forms.ComboBox();
             this.cbRegion = new System.Windows.Forms.ComboBox();
@@ -58,8 +57,9 @@
             this.cbUserName.Size = new System.Drawing.Size(121, 21);
             this.cbUserName.TabIndex = 3;
             this.cbUserName.ValueMember = "UserId";
-
-
+            // 
+            // cbRegion
+            // 
             this.cbRegion.DisplayMember = "RegionName";
             this.cbRegion.FormattingEnabled = true;
             this.cbRegion.Location = new System.Drawing.Point(145, 29);
@@ -85,6 +85,7 @@
             this.btnLaunch.TabIndex = 6;
             this.btnLaunch.Text = "Enter Lobby!";
             this.btnLaunch.UseVisualStyleBackColor = true;
+            this.btnLaunch.Click += new System.EventHandler(this.btnLaunch_Click);
             // 
             // lblError
             // 
@@ -119,7 +120,7 @@
             this.lblPassword.TabIndex = 10;
             this.lblPassword.Text = "Password:";
             // 
-            // Start
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,7 +134,7 @@
             this.Controls.Add(this.cbRegion);
             this.Controls.Add(this.cbUserName);
             this.Controls.Add(this.userLabel);
-            this.Name = "Start";
+            this.Name = "Login";
             this.Text = "Mafia Login Form";
             this.ResumeLayout(false);
             this.PerformLayout();
