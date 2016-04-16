@@ -89,6 +89,7 @@
             this.btnJoin.TabIndex = 2;
             this.btnJoin.Text = "Join Match";
             this.btnJoin.UseVisualStyleBackColor = true;
+            this.btnJoin.Click += new System.EventHandler(this.btnJoin_Click);
             // 
             // btnLogout
             // 

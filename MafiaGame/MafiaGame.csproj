@@ -79,6 +79,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MafiaDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Matches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Matches.Designer.cs">
+      <DependentUpon>Matches.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player_Classes\MafiaPlayer.cs" />
     <Compile Include="Player_Classes\NursePlayer.cs" />
     <Compile Include="Player_Classes\Player.cs" />
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Matches.resx">
+      <DependentUpon>Matches.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -122,7 +131,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\MafiaDB.mdf">

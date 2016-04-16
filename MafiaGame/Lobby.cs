@@ -17,17 +17,23 @@ namespace MafiaGame
         Login startForm;
         string myConnString = ConfigurationManager.ConnectionStrings["MafiaGameWF.Properties.Settings.MafiaDBConnectionString"].ConnectionString;
         string query;
-
+        Player human;
         public Lobby()
         {
             InitializeComponent();
             
         }
 
+        /*
+         * Create the player class, and populate the listboxes.
+         * Reference the Login page for potential return. 
+         * 
+         */
+
         public Lobby(string user, string password, string region, Login form)
         {
             InitializeComponent();
-            //Player human = new Player(user, password, "Red");
+            human = new Player(user, password, "Red");
             lblRegion.Text = region;
             lblUser.Text = user;
             startForm = form;
@@ -84,6 +90,7 @@ namespace MafiaGame
                 dap.Fill(data);
 
                 lbMatches.DisplayMember = "MatchName";
+                lbMatches.ValueMember = "MatchId";
                 lbMatches.DataSource = data;
             }
 
@@ -99,11 +106,25 @@ namespace MafiaGame
                 dap.Fill(data);
 
                 lbFullMatches.DisplayMember = "MatchName";
+                lbFullMatches.ValueMember = "MatchId";
                 lbFullMatches.DataSource = data;
             }
 
             lbFullMatches.ClearSelected();
 
+        }
+        /*
+         * 
+         * 
+         * 
+         * 
+         */ 
+        private void btnJoin_Click(object sender, EventArgs e)
+        {
+            int matchId = (int) lbMatches.SelectedValue;
+            Matches matches = new Matches(human, this, matchId, lbMatches.Text);
+            matches.Show();
+            Hide();
         }
     }
 }

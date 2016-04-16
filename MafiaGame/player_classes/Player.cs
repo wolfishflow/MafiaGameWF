@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MafiaGame
 {
-    class Player
+    public class Player
     {
         public string Name { set; get; }
         private string Password { set; get; }
