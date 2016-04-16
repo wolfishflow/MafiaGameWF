@@ -44,12 +44,14 @@ namespace MafiaGame
 
         }
 
-        private void Lobby_FormClosed(object sender, FormClosedEventArgs e)
+        
+
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             startForm.Show();
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void Lobby_FormClosed(object sender, FormClosedEventArgs e)
         {
             startForm.Show();
         }

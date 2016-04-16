@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lbMatches = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnJoin = new System.Windows.Forms.Button();
@@ -73,6 +72,7 @@
             this.btnLogout.TabIndex = 3;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // lblUser
             // 
@@ -89,7 +89,6 @@
             this.lblRegion.Name = "lblRegion";
             this.lblRegion.Size = new System.Drawing.Size(0, 13);
             this.lblRegion.TabIndex = 6;
-            
             // 
             // Lobby
             // 
@@ -104,6 +103,7 @@
             this.Controls.Add(this.lbMatches);
             this.Name = "Lobby";
             this.Text = "Lobby";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Lobby_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

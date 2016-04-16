@@ -74,8 +74,15 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Player_Classes\MafiaPlayer.cs" />
+    <Compile Include="Player_Classes\NursePlayer.cs" />
+    <Compile Include="Player_Classes\Player.cs" />
+    <Compile Include="Player_Classes\PolicePlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Lobby.resx">
+      <DependentUpon>Lobby.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
